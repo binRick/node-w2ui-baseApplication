@@ -5,9 +5,11 @@ var express = require('express'),
     http = require('http'),
     util = require('util'),
     rdb = require('rethinkdb'),
+    bodyParser = require('body-parser'),
     wine = require('./routes/wines');
 
 var app = express();
+    app.use(bodyParser());
 app.use(express.static(path.join(__dirname, 'public_html')));
 
 app.get('/wines', wine.findAll);

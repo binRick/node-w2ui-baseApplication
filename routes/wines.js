@@ -69,6 +69,7 @@ exports.findAll = function(req, res) {
  */
 exports.addWine = function(req, res) {
     var wine = req.body;
+    console.log(wine);
     // workaround for https://github.com/rethinkdb/rethinkdb/issues/498
     delete wine.id;
     debug('Adding wine: %j', wine);

@@ -16,22 +16,24 @@ app.post('/wines', wine.addWine);
 app.put('/wines/:id', wine.updateWine);
 app.delete('/wines/:id', wine.deleteWine);
 var dbConfig = {
-  host : config.rethinkHost,
-  port : config.rethinkPort,
-  db   : config.rethinkDB,
+    host: config.rethinkHost,
+    port: config.rethinkPort,
+    db: config.rethinkDB,
 };
 
-rdb.connect({host: dbConfig.host, port: dbConfig.port}, function(err, connection) {
-  if(err) {
-    console.log("ERROR: %s:%s", err.name, err.msg);
-    process.exit(1);
-  }
-  else {
-    wine.setupDB(dbConfig, connection);
-    connection.use(dbConfig.db);
-    wine.connection = connection;
-    http.createServer(app).listen(config.expressPort, config.expressHost, function () {
-      console.log("Express server listening on "+config.expressHost+":" + config.expressPort);
-    });
-  }
+rdb.connect({
+    host: dbConfig.host,
+    port: dbConfig.port
+}, function(err, connection) {
+    if (err) {
+        console.log("ERROR: %s:%s", err.name, err.msg);
+        process.exit(1);
+    } else {
+        wine.setupDB(dbConfig, connection);
+        connection.use(dbConfig.db);
+        wine.connection = connection;
+        http.createServer(app).listen(config.expressPort, config.expressHost, function() {
+            console.log("Express server listening on " + config.expressHost + ":" + config.expressPort);
+        });
+    }
 });

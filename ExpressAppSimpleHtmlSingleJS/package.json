@@ -1,0 +1,26 @@
+{
+  "name": "node-w2ui-baseapplication",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://binRick:cuhugeanh0099@github.com/binRick/node-w2ui-baseApplication"
+  },
+  "author": "rick blundell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/binRick/node-w2ui-baseApplication/issues"
+  },
+  "homepage": "https://github.com/binRick/node-w2ui-baseApplication",
+  "dependencies": {
+    "app-title": "^2.0.0",
+    "debug": "^2.2.0",
+    "express": "^4.12.4",
+    "rethinkdb": "^2.0.0-2"
+  }
+}
